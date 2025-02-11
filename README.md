@@ -21,12 +21,12 @@ This document explains the theoretical basis and working of each image processin
 - The first step involves reading the image and converting it to grayscale for uniform intensity-based processing.  
   **Why grayscale?**  
   Grayscale simplifies image analysis by reducing color channels, focusing solely on intensity variations, which are crucial for detecting edges and bends.
-![alt text](image-1.png)
+![alt text](assets/1_original.png)
 ### 2. **Blurring**
 - **Technique:** Gaussian Blur (applied with a kernel size of 7x7).  
   **Purpose:** To smoothen the image, reducing noise and minor irregularities. This ensures that edge detection focuses on significant edges rather than noise.  
   **How it works:** Gaussian blur applies a weighted average of pixel intensities in a neighborhood, where closer pixels have higher weights (based on a Gaussian distribution).
-![alt text](image-2.png)
+![alt text](assets/2_blurred.png)
 ---
 
 ### 3. **Edge Detection**
@@ -36,14 +36,14 @@ This document explains the theoretical basis and working of each image processin
   1. **Gradient Calculation:** The image gradient (change in pixel intensity) is computed in both horizontal (x) and vertical (y) directions.
   2. **Non-Maximum Suppression:** Thin out detected edges by suppressing non-maximum gradients, ensuring only the most prominent edges remain.
   3. **Double Thresholding:** Classify edges as strong, weak, or irrelevant based on gradient magnitude. Weak edges connected to strong edges are retained; the rest are discarded.
-![alt text](image-3.png)
+![alt text](assets/3_edge_detection.png)
 ---
 
 ### 4. **Dilating Edges**
 - **Technique:** Dilation with a 3x3 kernel.  
   **Purpose:** To thicken detected edges, ensuring connectivity between edge segments that represent bends.  
   **How it works:** Each pixel in the edge-detected image is replaced by the maximum pixel value within the kernel's neighborhood, effectively broadening the edges.
-![alt text](image-4.png)
+![alt text](assets/4_dialted_edges.png)
 ---
 
 ### 5. **Line Detection**
@@ -52,10 +52,10 @@ This document explains the theoretical basis and working of each image processin
   **How it works:** 
   - Each point in the Cartesian plane can represent a line in Hough space (parameterized by distance `ρ` from the origin and angle `θ`).
   - Peaks in Hough space represent lines that pass through the most points in the original image.
-![alt text](image-5.png)
+![alt text](assets/final.png)
 ---
 
-![alt text](image.png)
+![alt text](assets/h1.png)
 
 ### 6. **Bend Detection**
 - **Observation-Based Insights for Bend Points:**
