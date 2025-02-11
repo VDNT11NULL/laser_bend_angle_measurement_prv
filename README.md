@@ -21,7 +21,7 @@ This document explains the theoretical basis and working of each image processin
 - The first step involves reading the image and converting it to grayscale for uniform intensity-based processing.  
   **Why grayscale?**  
   Grayscale simplifies image analysis by reducing color channels, focusing solely on intensity variations, which are crucial for detecting edges and bends.
-![alt text](assets/1_original.png)
+![alt text](assets/1_orginal.png)
 ### 2. **Blurring**
 - **Technique:** Gaussian Blur (applied with a kernel size of 7x7).  
   **Purpose:** To smoothen the image, reducing noise and minor irregularities. This ensures that edge detection focuses on significant edges rather than noise.  
